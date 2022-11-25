@@ -8,12 +8,18 @@ class Tarefas(ScrollView):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Label(text=tarefa, font_size=30, size_hint_y=None, height=150))
+            self.ids.box.add_widget(Tarefa(text=tarefa))
 
 
-class Test6(App):
+class Tarefa(BoxLayout):
+    def __init__(self, text='', **kwargs):
+        super().__init__(**kwargs)
+        self.ids.label.text = text
+
+
+class Test7(App):
     def build(self):
         return Tarefas(['fazer', 'buscar', 'o lokoh!!!', 'kdksadjsadk', 'sdnsadj', 'asndsahas'])
 
 
-Test6().run()
+Test7().run()
